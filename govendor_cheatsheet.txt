@@ -1,0 +1,13 @@
+cd /home/davidcarrington/go/src/github.com/hyperledger/fabric/ 
+cp -r ~/git/hlf-ldap/chaincode/fileTransfer .
+cd fileTransfer/
+govendor init
+govendor fetch github.com/google/uuid
+govendor add +external
+cd ..
+cp -r fileTransfer ~/git/hlf-ldap/chaincode/
+cd ~/git/hlf-ldap/chaincode/
+go build
+cd fileTransfer/
+go build
+rm fileTransfer
